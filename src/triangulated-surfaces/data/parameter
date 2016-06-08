@@ -1,0 +1,70 @@
+tfem.verboserank: 0
+fem.solver.verbose: 0
+
+#fem.io.macroGridFile_2d: ../data/unitcube-2d.dgf
+#fem.io.macroGridFile_2d: ../data/spiral-2d.dgf
+#fem.io.macroGridFile_2d: ../data/sphere.dgf
+fem.io.macroGridFile_2d: ../../rg_mesh/vtkpipe/stackbase_rgmesh.dgf
+#fem.io.macroGridFile_2d: ../data/sphere-0.3.dgf
+fem.io.macroGridFile_1d: ../data/circle.dgf
+
+istl.preconditioning.method: jacobi
+istl.preconditioning.iterations: 1
+istl.preconditioning.relaxation: 1
+# enable simple Jacobi preconditioning (for non istl inverse operators)
+fem.preconditioning: true
+Preconditioning:1
+
+fem.prefix: ../output
+fem.io.savestep: 1.0e-2
+fem.io.savecount: -1
+fem.timeprovider.factor: 1
+
+imagedata.databasename:../../rg_mesh/vtkpipe/stack_rgmesh
+imagedata.filetimestep: 2e-5
+imagedata.verbose: 0
+
+diffusion.timestep: 2.0e-5
+diffusion.D: 1.0e2
+diffusion.endtime: 10000000
+diffusion.theta: 1
+diffusion.level: 0
+diffusion.repeats: 0
+diffusion.reducetimestepfactor: 0.5
+diffusion.streamlinediffusion: 1
+diffusion.subtracttangentialvelocity: 1
+diffusion.problem:frap
+diffusion.c0:1
+
+solver.eps:1.0e-8
+solver.gamma:1
+solver.gammamult:1.1
+
+reactiondiffusion.timestep: 1.0e-2
+reactiondiffusion.endtime: 100000
+reactiondiffusion.level: 0
+reactiondiffusion.repeats: 0
+reactiondiffusion.reducetimestepfactor: 0.25
+
+# choose from KochMeinhardt
+reactiondiffusion.problem:Brusselator
+Brusselator.D1:1.0
+Brusselator.D2:10.0
+Brusselator.alpha:0.1
+Brusselator.beta:0.9
+Brusselator.gamma:200.0
+Brusselator.r1:0.0
+Brusselator.r2:0.0
+
+KochMeinhardt.a0:     1.0
+KochMeinhardt.s0:     1.0
+KochMeinhardt.initialvariation: 0.1
+KochMeinhardt.D1:     0.05
+KochMeinhardt.D2:     0.2
+KochMeinhardt.sigma1: 0.0
+KochMeinhardt.sigma2: 0.00
+KochMeinhardt.rho1:   1 #0.01
+KochMeinhardt.rho2:   2 # 0.02
+KochMeinhardt.mu1:    1 # 0.01
+KochMeinhardt.mu2:    2 # 0.02
+KochMeinhardt.k:      0.0
