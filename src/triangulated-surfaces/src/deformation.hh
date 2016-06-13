@@ -240,7 +240,7 @@ public:
     localVerticesOld.evaluate( pt, yold );
 
     velocity = ( y - yold );
-    velocity /= timeProvider_.deltaT();
+    velocity /= nextFileTimeStep_;
 #else
     velocity = VelocityType(0);
 #endif
